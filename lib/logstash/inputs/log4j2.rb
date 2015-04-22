@@ -99,7 +99,7 @@ class LogStash::Inputs::Log4j2 < LogStash::Inputs::Base
         # Add the context properties to '@fields'
         if log4j_obj.contextMap
           log4j_obj.contextMap.keySet.each do |key|
-            event["cmap_"+key] = log4j_obj.contextMap.get(key)
+            event[key] = log4j_obj.contextMap.get(key)
           end
         end
 
@@ -108,7 +108,7 @@ class LogStash::Inputs::Log4j2 < LogStash::Inputs::Base
           event["stack_trace"] = pretty_print_stack_trace(proxy)
         end
 
-        event["cstack"] = log4j_obj.getContextStack.to_a if log4j_obj.getContextStack
+        event["NDC"] = log4j_obj.getContextStack.to_a.join(" ") if log4j_obj.getContextStack && !log4j_obj.getContextStack.asList.isEmpty
         output_queue << event
       end # loop do
     rescue => e

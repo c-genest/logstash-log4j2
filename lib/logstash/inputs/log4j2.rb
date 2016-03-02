@@ -16,7 +16,6 @@ require "timeout"
 class LogStash::Inputs::Log4j2 < LogStash::Inputs::Base
 
   config_name "log4j2"
-  milestone 1
 
   # When mode is `server`, the address to listen on.
   # When mode is `client`, the address to connect to.

@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
   s.name            = 'logstash-input-log4j2'
-  s.version         = '5.1'
+  s.version         = '5.3.0'
   s.licenses        = ['Apache License (2.0)']
   s.summary         = "Read events over a TCP socket from a Log4j2 SocketAppender"
   s.description     = "This gem is a logstash plugin required to be installed on top of the Logstash core pipeline using $LS_HOME/bin/plugin install gemname. This gem is not a stand-alone program"
@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
 
   s.platform = 'java'
 
-  s.add_runtime_dependency "logstash-core", '>= 1.4.0', '< 2.0.0'
+  s.add_runtime_dependency "logstash-core", '>= 1.4.0', '< 3.0.0'
   s.add_development_dependency 'logstash-devutils'
 end
